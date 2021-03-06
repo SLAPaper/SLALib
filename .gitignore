@@ -102,3 +102,33 @@ dist
 
 # TernJS port file
 .tern-port
+
+# easy-git
+# Mac
+.DS_Store
+**/.DS_Store
+
+# vim/vi
+*.swp
+
+# JavaScript
+node_modules/
+.node_modules/
+.eslintcache
+unpackage/dist/build/
+unpackage/dist/dev/
+
+# python
+*.pyc
+
+# HBuilderX
+uni_modules/
+uni_modules/uni-id/uniCloud/cloudfunctions/common/uni-id/config.json
+uniCloud-aliyun/cloudfunctions/common/secret-data/
+uniCloud-aliyun/cloudfunctions/login/login.param.json
+uniCloud-aliyun/database/
+node_modules/
+.hbuilderx/
+static/
+unpackage/res/icons/
+manifest.json
