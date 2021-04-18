@@ -42,6 +42,9 @@ export default {
         });
         // #endif
     },
+    onTabItemTap: function(e) {
+        console.log(e);
+    },
     onLoad() {
         console.log('Page Load');
     },
@@ -64,6 +67,9 @@ export default {
                             uni.setStorageSync('uni_id_token', res.result.token);
                             uni.setStorageSync('uni_id_token_expired', res.result.tokenExpired);
                             // TODO: 跳转到用户主页
+                            uni.switchTab({
+                                url: '/pages/list/list'
+                            });
                         });
                     } else {
                         console.log('微信授权登陆失败！', res);
@@ -75,7 +81,7 @@ export default {
                     // TODO: 友善错误界面
                 }
             });
-        }
+        },
         // #endif
 
         // #ifdef MP-BAIDU
@@ -106,6 +112,9 @@ export default {
                             uni.setStorageSync('uni_id_token', res.result.token);
                             uni.setStorageSync('uni_id_token_expired', res.result.tokenExpired);
                             // TODO: 跳转到用户主页
+                            uni.switchTab({
+                                url: '/pages/list/list'
+                            });
                         });
                 },
                 fail: function(err) {
@@ -113,7 +122,7 @@ export default {
                     // TODO: 友善错误界面
                 }
             });
-        }
+        },
         // #endif
     }
 };
