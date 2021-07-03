@@ -4,16 +4,17 @@ const uniID = require('uni-id');
 const secrets = require('secret-data');
 
 async function weixin_login(event) {
-    return await uniID.loginByWeixin({
+    const res = await uniID.loginByWeixin({
         code: event.code
     });
+    return res;
 }
 
 async function baidu_login(event) {
     if (!event.code) {
         return {
-            code: 10801,
-            message: '百度授权code非法'
+            errCode: 'baidu-auth-code-invalid',
+            errMsg: '百度授权code非法'
         };
     }
 
@@ -65,8 +66,8 @@ async function baidu_login(event) {
     }
 
     return {
-        code: 10802,
-        message: '百度授权登录失败'
+        errCode: 'baidu-auth-failed',
+        errMsg: '百度授权登录失败'
     };
 }
 
@@ -88,7 +89,7 @@ exports.main = async (event, context) => {
     }
 
     return {
-        code: 10002,
-        message: '登录类型非法'
+        errCode: 'login-type-invalid',
+        errMsg: '登录类型非法'
     };
 };
